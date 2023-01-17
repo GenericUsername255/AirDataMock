@@ -10,16 +10,24 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
     <script src="https://unpkg.com/vue@next"></script>
 </head>
+<style>
+    body{background-color: azure;}
+</style>
+
 <body>
+    <div class="container-fluid">
+        <h1><center>Pure Air</center></h1>
+        <h3>Zealand</h3>
+    </div>
     <div id="app">
-        <h3>Pure Air</h3>
-        <div v-if="NewestRoomSet">
-            <table id="table" class="table table-striped">
+        <div class="container-fluid" v-if="NewestRoomSet">
+            <table id="table" class="table table-dark table-striped table-hover table ">
                 <tbody>
+                    <th>Room</th><th>Co2 Value</th><th>Measurement time</th>
                     <tr id="list" v-for="NewestRoomData in NewestRoomDatas">
                         <td>{{NewestRoomData.roomId}}</td>
                         <td>{{NewestRoomData.co2 }}</td>
-                        <td>{{NewestRoomData.timeStamp }}</td>
+                        <td>{{NewestRoomData.timeStamp.slice(5,10) + " | " + NewestRoomData.timeStamp.slice(11,16) }}</td>
                     </tr>
                 </tbody>
             </table>
