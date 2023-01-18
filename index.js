@@ -14,9 +14,7 @@ Vue.createApp({
         }
     },
     async mounted() {
-        // created() is a life cycle method, not an ordinary method
-        // created() is called automatically when the page is loaded
-        console.log("created method called")
+        console.log("mounted method called")
         this.helperGetAir(baseUri)
         
     },
@@ -47,7 +45,6 @@ Vue.createApp({
                         idCounter = AirData.id
                     }
                 }
-                //RoomDataAray.sort(function(a, b){return b - a});
                 this.NewestRoomDatas.push(RoomDataAray.pop())
             }
         this.NewestRoomSet = true
